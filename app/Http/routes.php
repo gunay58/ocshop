@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [ 'as' => 'news', 'uses' => 'newsController@showStartPage']);
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

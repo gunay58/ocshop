@@ -42,11 +42,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img alt="Brand" src="/img/brand.png"> </a>
+            <a class="navbar-brand" href="{{ url('/') }}"><img alt="Brand" src="/img/brand.png"> </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#"><img src="/img/ico/newspaper.png"> Neuigkeiten</a></li>
+                <li><a href="{{ url('/') }}"><img src="/img/ico/newspaper.png"> Neuigkeiten</a></li>
                 <li><a href="#contact"><img src="/img/ico/support.png"> Support</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -60,8 +60,8 @@
                     </ul>
                 </li>
             </ul>
-            <p class="navbar-text navbar-right"><a href="#" class="navbar-link"><img src="/img/ico/user.png">
-                    Anmelden</a> oder <a href="#" class="navbar-link"><img src="/img/ico/user_add.png">Registrieren</a>
+            <p class="navbar-text navbar-right"><a href="{{ url('/login') }}" class="navbar-link"><img src="/img/ico/user.png">
+                    Anmelden</a> oder <a href="{{ url('/register') }}" class="navbar-link"><img src="/img/ico/user_add.png">Registrieren</a>
             </p>
         </div><!--/.nav-collapse -->
     </div>
