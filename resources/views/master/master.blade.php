@@ -69,6 +69,18 @@
                         </button>
 
                     </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"><img src="/img/ico/user.png"> Mein Account<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Überischt</a></li>
+                        <li><a href="#">Kategorie</a></li>
+                        <li><a href="#">Kategorie</a></li>
+                        <li><a href="#">Kategorie</a></li>
+                        <li><a href="#">Kategorie</a></li>
+                    </ul>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
