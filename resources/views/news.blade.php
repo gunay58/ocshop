@@ -14,7 +14,12 @@
     <div class="col-lg-5">
         <div class="panel panel-default">
             <div class="panel-heading"><img src="/img/ico/database.png"> Statistiken</div>
-            <div class="panel-body">Panel Content</div>
+            <div class="panel-body">
+                Gesamt Kunden: <br>
+                Gesamt Einkäufe: <br>
+                Gesamt Einzahlungen: <br>
+                Gesamt Produkte: <br>
+            </div>
         </div>
 
         <div class="panel panel-default">

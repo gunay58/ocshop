@@ -60,12 +60,20 @@
                     </ul>
                 </li>
             </ul>
-            <p class="navbar-text navbar-right"><a href="{{ url('/login') }}" class="navbar-link"><img src="/img/ico/user.png">
-                    Anmelden</a> oder <a href="{{ url('/register') }}" class="navbar-link"><img src="/img/ico/user_add.png">Registrieren</a>
-            </p>
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button onclick="location.href='{{ url('/login') }}';" type="button" class="btn btn-default navbar-btn"><img src="/img/ico/user.png"> Anmelden
+                        </button>
+                        oder
+                        <button onclick="location.href='{{ url('/register') }}';" type="button" class="btn btn-default navbar-btn"><img src="/img/ico/user_add.png"> Registrieren
+                        </button>
+
+                    </li>
+            </ul>
         </div><!--/.nav-collapse -->
     </div>
-</nav><br><br>
+</nav>
+<br><br>
 
 <!-- Begin page content -->
 <div class="container">
