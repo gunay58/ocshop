@@ -18,7 +18,8 @@
     <link href="bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -34,7 +35,8 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -47,7 +49,8 @@
                 <li><a href="#"><img src="/img/ico/newspaper.png"> Neuigkeiten</a></li>
                 <li><a href="#contact"><img src="/img/ico/support.png"> Support</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/img/ico/folders.png"> Produkte<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"><img src="/img/ico/folders.png"> Produkte<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Kategorie</a></li>
                         <li><a href="#">Kategorie</a></li>
@@ -57,15 +60,19 @@
                     </ul>
                 </li>
             </ul>
-            <p class="navbar-text navbar-right"><a href="#" class="navbar-link"><img src="/img/ico/user.png"> Anmelden</a> oder <a href="#" class="navbar-link"><img src="/img/ico/user_add.png">Registrieren</a></p>
+            <p class="navbar-text navbar-right"><a href="#" class="navbar-link"><img src="/img/ico/user.png">
+                    Anmelden</a> oder <a href="#" class="navbar-link"><img src="/img/ico/user_add.png">Registrieren</a>
+            </p>
         </div><!--/.nav-collapse -->
     </div>
-</nav>
+</nav><br><br>
 
 <!-- Begin page content -->
 <div class="container">
-    <div class="col-lg-12">
-        @yield('content')
+    <div class="row">
+        <div class="col-lg-12">
+            @yield('content')
+        </div>
     </div>
 </div>
 

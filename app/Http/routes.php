@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('master.master');
 });
+
+Route::get('/', [ 'as' => 'news', 'uses' => 'newsController@showStartPage']);
