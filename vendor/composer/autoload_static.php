@@ -24,6 +24,10 @@ class ComposerStaticInit53c49913976f4feb561d509d77e02004
         array (
             'XdgBaseDir\\' => 11,
         ),
+        'W' => 
+        array (
+            'Wicochandra\\Captcha\\' => 20,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Util\\' => 22,
@@ -86,6 +90,10 @@ class ComposerStaticInit53c49913976f4feb561d509d77e02004
         'XdgBaseDir\\' => 
         array (
             0 => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src',
+        ),
+        'Wicochandra\\Captcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wicochandra/captcha/src',
         ),
         'Symfony\\Polyfill\\Util\\' => 
         array (
@@ -2377,6 +2385,7 @@ class ComposerStaticInit53c49913976f4feb561d509d77e02004
         'SebastianBergmann\\RecursionContext\\Exception' => __DIR__ . '/..' . '/sebastian/recursion-context/src/Exception.php',
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'SimpleCaptcha' => __DIR__ . '/..' . '/wicochandra/captcha/lib/captcha.php',
         'SuperClosure\\Analyzer\\AstAnalyzer' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Analyzer/AstAnalyzer.php',
         'SuperClosure\\Analyzer\\ClosureAnalyzer' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Analyzer/ClosureAnalyzer.php',
         'SuperClosure\\Analyzer\\Token' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Analyzer/Token.php',
@@ -2892,6 +2901,9 @@ class ComposerStaticInit53c49913976f4feb561d509d77e02004
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
+        'Wicochandra\\Captcha\\Captcha' => __DIR__ . '/..' . '/wicochandra/captcha/src/Captcha.php',
+        'Wicochandra\\Captcha\\CaptchaServiceProvider' => __DIR__ . '/..' . '/wicochandra/captcha/src/CaptchaServiceProvider.php',
+        'Wicochandra\\Captcha\\Facade\\Captcha' => __DIR__ . '/..' . '/wicochandra/captcha/src/Facade/Captcha.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/phpDocumentor/Reflection/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlock\\Context' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/phpDocumentor/Reflection/DocBlock/Context.php',

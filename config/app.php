@@ -126,6 +126,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        'Wicochandra\Captcha\CaptchaServiceProvider',
         'Collective\Html\HtmlServiceProvider',
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -172,6 +173,7 @@ return [
 
     'aliases' => [
 
+        'Captcha'         => 'Wicochandra\Captcha\Facade\Captcha',
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'App' => Illuminate\Support\Facades\App::class,

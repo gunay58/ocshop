@@ -1,0 +1,30 @@
+{
+    "name": "wicochandra/captcha",
+    "description": "This package is captcha based on cool-php-captcha 0.3.1. It provides simple call usage and validation.",
+    "keywords": ["framework", "laravel", "captcha", "cool-php-captcha", "security"],
+    "license": [
+        "MIT",
+        "GPL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Wico Chandra",
+            "email": "wicochandra@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-gd": "*",
+        "illuminate/support": "~5.0",
+        "illuminate/session": "~5.0"
+    },
+    "autoload": {
+        "classmap": [
+            "lib/"
+        ],
+        "psr-4": {
+            "Wicochandra\\Captcha\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
