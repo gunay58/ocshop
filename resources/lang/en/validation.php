@@ -91,9 +91,9 @@ return [
     |
     */
 
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+    'captcha' => [
+        'captcha' => [
+            'captcha' => 'Die Lösung stimmt mit dem Captcha nicht überein!',
         ],
     ],
 
