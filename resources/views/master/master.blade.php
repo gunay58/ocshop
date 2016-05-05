@@ -48,6 +48,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}"><img src="/img/ico/newspaper.png"> Neuigkeiten</a></li>
                 <li><a href="#contact"><img src="/img/ico/support.png"> Support</a></li>
+                <li><a href="#contact"><img src="/img/ico/section.png"> FAQ</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><img src="/img/ico/folders.png"> Produkte<span class="caret"></span></a>
@@ -61,26 +62,34 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                @if(Auth::check())
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"><img src="/img/ico/user.png"> {{Auth::user()->username}}<span
+                                    class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><img src="/img/ico/user.png"> Profil</a></li>
+                            <li><a href="#"><img src="/img/ico/tag.png"> Meine Einkäufe <span class="badge">0</span></a></li>
+                            <li><a href="#"><img src="/img/ico/money_add.png"> Guthaben aufladen</a></li>
+                            <li><a href="#"><img src="/img/ico/support.png"> Meine Tickets <span class="badge">0</span> </a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ url('/logout') }}"><img src="/img/ico/logout.png"> Logout</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><img src="/img/ico/tag.png"> Warenkorb <span class="badge">0</span> </a></li>
+                    <span class="navbar-text"> Guthaben: {{Auth::user()->guthaben}}€</span>
+                @else
+
                     <li>
-                        <button onclick="location.href='{{ url('/login') }}';" type="button" class="btn btn-default navbar-btn"><img src="/img/ico/user.png"> Anmelden
+                        <button onclick="location.href='{{ url('/login') }}';" type="button"
+                                class="btn btn-default navbar-btn"><img src="/img/ico/user.png"> Anmelden
                         </button>
                         oder
-                        <button onclick="location.href='{{ url('/register') }}';" type="button" class="btn btn-default navbar-btn"><img src="/img/ico/user_add.png"> Registrieren
+                        <button onclick="location.href='{{ url('/register') }}';" type="button"
+                                class="btn btn-default navbar-btn"><img src="/img/ico/user_add.png"> Registrieren
                         </button>
-
                     </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false"><img src="/img/ico/user.png"> Mein Account<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Überischt</a></li>
-                        <li><a href="#">Kategorie</a></li>
-                        <li><a href="#">Kategorie</a></li>
-                        <li><a href="#">Kategorie</a></li>
-                        <li><a href="#">Kategorie</a></li>
-                    </ul>
-                </li>
+                @endif
             </ul>
         </div><!--/.nav-collapse -->
     </div>
