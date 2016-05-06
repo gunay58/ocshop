@@ -99,7 +99,7 @@ class profileController extends Controller
             $profile = profile::findOrFail($id);
             $profile->update($request->all());
 
-            flash()->success('You have been logged out.');
+            \Session::flash('flash_message','Office successfully added.');
             return redirect('/profile/'.$id.'/edit');
 
         } else {

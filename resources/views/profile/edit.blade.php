@@ -5,20 +5,15 @@
 
         <div class="page-header"><h2>Mein Profil</h2></div>
 
-        @if (Session::has('flash_notification.message'))
-            <div class="alert alert-{{ Session::get('flash_notification.level') }}">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-                {{ Session::get('flash_notification.message') }}
-            </div>
-        @endif
-
-
         {!! Form::model($profile, [
             'method' => 'PATCH',
             'url' => ['/profile', $profile->id],
             'class' => 'form-horizontal'
         ]) !!}
+
+        @if(Session::has('flash_message'))
+            <div class="alert alert-success"><em> {!! session('flash_message') !!}</em></div>
+        @endif
 
         <div class="col-lg-6 col-lg-offset-3">
             <div class="panel panel-default">
@@ -41,8 +36,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><img src="/img/ico/home.png"> Dropadresse</div>
                 <div class="panel-body">
-
-
+                    {{ Form::text('klingelname', null, array('class'=>'form-control','placeholder'=>'Vor- und Nachname')) }}
+                    {{ Form::text('strasse_hausnr', null, array('class'=>'form-control','placeholder'=>'Straße und Hausnummer')) }}
+                    {{ Form::text('plz_ort', null, array('class'=>'form-control','placeholder'=>'PLZ und Ort')) }}
+                    {{ Form::text('land', null, array('class'=>'form-control','placeholder'=>'Land')) }}
                 </div>
             </div>
         </div>
@@ -51,8 +48,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><img src="/img/ico/home.png"> Packstation Adresse</div>
                 <div class="panel-body">
-
-
+                    {{ Form::text('klingelname', null, array('class'=>'form-control','placeholder'=>'Vor- und Nachname')) }}
+                    {{ Form::text('postnr', null, array('class'=>'form-control','placeholder'=>'PostNr.')) }}
+                    {{ Form::text('psnr', null, array('class'=>'form-control','placeholder'=>'PackstationNr.')) }}
+                    {{ Form::text('plz_ort_ps', null, array('class'=>'form-control','placeholder'=>'PLZ und Ort')) }}
+                    {{ Form::text('land', null, array('class'=>'form-control','placeholder'=>'Land')) }}
                 </div>
             </div>
         </div>
