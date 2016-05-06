@@ -17,6 +17,15 @@ Route::get('/', function () {
 
 Route::get('/', [ 'as' => 'news', 'uses' => 'newsController@showStartPage']);
 
+
+//Route::get('editProfile', [ 'as' => 'editProfile','middleware' => 'auth', 'uses' => 'profileController@edit']);
+//Route::resource('editProfile', 'profileController');
+
+
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('profile', 'profileController');
+   // Route::get('profile', [ 'as' => 'profile/{:id}','middleware' => 'auth', 'uses' => 'profileController@show']);
+});

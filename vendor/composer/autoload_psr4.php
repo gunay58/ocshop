@@ -37,5 +37,6 @@ return array(
     'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
     'ClassPreloader\\' => array($vendorDir . '/classpreloader/classpreloader/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
+    'Appzcoder\\CrudGenerator\\' => array($vendorDir . '/appzcoder/crud-generator/src'),
     'App\\' => array($baseDir . '/app'),
 );

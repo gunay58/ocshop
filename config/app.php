@@ -126,6 +126,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         'Wicochandra\Captcha\CaptchaServiceProvider',
         'Collective\Html\HtmlServiceProvider',
