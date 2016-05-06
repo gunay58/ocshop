@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Auth;
 use App\profile;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -19,9 +20,13 @@ class profileController extends Controller
      */
     public function index()
     {
-        $profile = profile::paginate(15);
+        if(Auth::check()) {
+            $profile = profile::paginate(15);
 
-        return view('profile.index', compact('profile'));
+            return view('profile.index', compact('profile'));
+        } else {
+            return redirect('/login');
+        }
     }
 
     /**
@@ -72,9 +77,13 @@ class profileController extends Controller
      */
     public function edit($id)
     {
-        $profile = profile::findOrFail($id);
+        if(Auth::check() && $id == Auth::id()) {
+            $profile = profile::findOrFail($id);
 
-        return view('profile.edit', compact('profile'));
+            return view('profile.edit', compact('profile'));
+        } else {
+            return redirect('/login');
+        }
     }
 
     /**
@@ -86,13 +95,16 @@ class profileController extends Controller
      */
     public function update($id, Request $request)
     {
-        
-        $profile = profile::findOrFail($id);
-        $profile->update($request->all());
+        if(Auth::check() && $id == Auth::id()) {
+            $profile = profile::findOrFail($id);
+            $profile->update($request->all());
 
-        Session::flash('flash_message', 'profile updated!');
+            flash()->success('You have been logged out.');
+            return redirect('/profile/'.$id.'/edit');
 
-        return redirect('profile/profile');
+        } else {
+            redirect('/login');
+        }
     }
 
     /**

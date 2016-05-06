@@ -27,6 +27,5 @@ Route::auth();
 
 
 Route::group(['middleware' => ['web']], function () {
-	Route::resource('profile/'.Auth::id(), 'profileController');
-   // Route::get('profile', [ 'as' => 'profile/{:id}','middleware' => 'auth', 'uses' => 'profileController@show']);
+	Route::resource('profile','profileController');
 });

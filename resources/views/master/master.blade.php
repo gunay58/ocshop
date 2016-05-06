@@ -12,10 +12,10 @@
     <title>OCShop</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="/bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]>
@@ -68,8 +68,9 @@
                            aria-expanded="false"><img src="/img/ico/user.png"> {{Auth::user()->username}}<span
                                     class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><img src="/img/ico/user.png"> Profil</a></li>
+                            <li><a href="{{ route('profile.edit', Auth::user()->id) }}"><img src="/img/ico/user.png"> Profil</a></li>
                             <li><a href="#"><img src="/img/ico/tag.png"> Meine Einkäufe <span class="badge">0</span></a></li>
+                            <li><a href="#"><img src="/img/ico/home.png"> Meine Sendungen <span class="badge">0</span></a></li>
                             <li><a href="#"><img src="/img/ico/money_add.png"> Guthaben aufladen</a></li>
                             <li><a href="#"><img src="/img/ico/support.png"> Meine Tickets <span class="badge">0</span> </a></li>
                             <li class="divider"></li>
@@ -117,7 +118,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>

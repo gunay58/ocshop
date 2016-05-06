@@ -126,6 +126,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        'Laracasts\Flash\FlashServiceProvider',
         Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         'Wicochandra\Captcha\CaptchaServiceProvider',
@@ -175,6 +176,7 @@ return [
 
     'aliases' => [
 
+        'Flash' => 'Laracasts\Flash\Flash',
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
         'Captcha'         => 'Wicochandra\Captcha\Facade\Captcha',
         'Form' => 'Collective\Html\FormFacade',
