@@ -126,6 +126,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Zizaco\Entrust\EntrustServiceProvider::class,
         'Wicochandra\Captcha\CaptchaServiceProvider',
         'Collective\Html\HtmlServiceProvider',
         Illuminate\Auth\AuthServiceProvider::class,
@@ -173,6 +174,7 @@ return [
 
     'aliases' => [
 
+        'Entrust' => Zizaco\Entrust\EntrustFacade::class,
         'Captcha'         => 'Wicochandra\Captcha\Facade\Captcha',
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
