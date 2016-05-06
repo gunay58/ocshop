@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('master.master');
@@ -26,6 +27,6 @@ Route::auth();
 
 
 Route::group(['middleware' => ['web']], function () {
-	Route::resource('profile', 'profileController');
+	Route::resource('profile/'.Auth::id(), 'profileController');
    // Route::get('profile', [ 'as' => 'profile/{:id}','middleware' => 'auth', 'uses' => 'profileController@show']);
 });
