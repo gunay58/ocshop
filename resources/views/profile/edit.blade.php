@@ -12,7 +12,7 @@
         ]) !!}
 
         @if(Session::has('flash_message'))
-            <div class="alert alert-success"><em> {!! session('flash_message') !!}</em></div>
+            <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> {!! session::pull('flash_message') !!}</div>
         @endif
 
         <div class="col-lg-12">
@@ -25,7 +25,8 @@
                             Rang:<br>
                             E-Mail: {{Auth::user()->email}}<br>
                             Guthaben: {{Auth::user()->guthaben}}€<br>
-                            Drop: {{ !empty($profile->drop_name) ? Html::image('img/ico/tick2.png') : Html::image('img/ico/cross.png') }}<br>
+                            Drop: {{ !empty($profile->drop_name) ? Html::image('img/ico/tick2.png') : Html::image('img/ico/cross.png') }}
+                            <br>
                             Packstation: {{ !empty($profile->ps_name) ? Html::image('img/ico/tick2.png') : Html::image('img/ico/cross.png') }}
                         </div>
                         <div class="col-lg-4 pull-right">
@@ -40,6 +41,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><img src="/img/ico/user.png"> Mein Profil</div>
                     <div class="panel-body">
+                        @if ($errors->has('password'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                        @endif
+
                         {{ Form::email('email', null, array('class'=>'form-control','placeholder'=>'E-Mail')) }}
                         {{ Form::password('password', array('class'=>'form-control','placeholder'=>'Neues Passwort')) }}
                         {{ Form::password('pass_confirmation', array('class'=>'form-control','placeholder'=>'Passwort bestätigen')) }}

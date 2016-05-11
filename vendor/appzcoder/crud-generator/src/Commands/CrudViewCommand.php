@@ -203,7 +203,7 @@ class CrudViewCommand extends Command
         if ($fields) {
             $x = 0;
             foreach ($fieldsArray as $item) {
-                $itemArray = explode(':', $item);
+                $itemArray = explode('#', $item);
                 $this->formFields[$x]['name'] = trim($itemArray[0]);
                 $this->formFields[$x]['type'] = trim($itemArray[1]);
                 $this->formFields[$x]['required'] = (isset($itemArray[2]) && (trim($itemArray[2]) == 'req' || trim($itemArray[2]) == 'required')) ? true : false;
@@ -224,17 +224,12 @@ class CrudViewCommand extends Command
 
             $field = $value['name'];
             $label = ucwords(str_replace('_', ' ', $field));
-            if($this->option('localize') == 'yes') {
-                $label = 'trans(\'' . $this->crudName . '.' . $field . '\')';
+            if ($this->option('localize') == 'yes') {
+                $label = '{{ trans(\'' . $this->crudName . '.' . $field . '\') }}';
             }
-            $this->formHeadingHtml .= '<th>{{ ' . $label . ' }}</th>';
-
-            if ($i == 0) {
-                $this->formBodyHtml .= '<td><a href="{{ url(\'%%routeGroup%%%%crudName%%\', $item->id) }}">{{ $item->' . $field . ' }}</a></td>';
-            } else {
-                $this->formBodyHtml .= '<td>{{ $item->' . $field . ' }}</td>';
-            }
-            $this->formBodyHtmlForShowView .= '<td> {{ $%%crudNameSingular%%->' . $field . ' }} </td>';
+            $this->formHeadingHtml .= '<th> ' . $label . ' </th>';
+            $this->formBodyHtml .= '<td>{{ $item->' . $field . ' }}</td>';
+            $this->formBodyHtmlForShowView .= '<tr><th> ' . $label . ' </th><td> {{ $%%crudNameSingular%%->' . $field . ' }} </td></tr>';
 
             $i++;
         }
@@ -341,11 +336,14 @@ class CrudViewCommand extends Command
     public function templateShowVars($newShowFile)
     {
         File::put($newShowFile, str_replace('%%formHeadingHtml%%', $this->formHeadingHtml, File::get($newShowFile)));
-        File::put($newShowFile, str_replace('%%formBodyHtml%%', $this->formBodyHtmlForShowView, File::get($newShowFile)));
+        File::put($newShowFile, str_replace('%%formBodyHtmlForShowView%%', $this->formBodyHtmlForShowView, File::get($newShowFile)));
         File::put($newShowFile, str_replace('%%crudNameSingular%%', $this->crudNameSingular, File::get($newShowFile)));
         File::put($newShowFile, str_replace('%%crudNameCap%%', $this->crudNameCap, File::get($newShowFile)));
         File::put($newShowFile, str_replace('%%modelName%%', $this->modelName, File::get($newShowFile)));
         File::put($newShowFile, str_replace('%%primaryKey%%', $this->primaryKey, File::get($newShowFile)));
+        File::put($newShowFile, str_replace('%%crudName%%', $this->crudName, File::get($newShowFile)));
+        File::put($newShowFile, str_replace('%%routeGroup%%', $this->routeGroup, File::get($newShowFile)));
+
     }
 
     /**
@@ -368,9 +366,9 @@ class CrudViewCommand extends Command
                 </div>
             </div>\n
 EOD;
-        $labelText = "'".ucwords(strtolower(str_replace('_', ' ', $item['name'])))."'";
+        $labelText = "'" . ucwords(strtolower(str_replace('_', ' ', $item['name']))) . "'";
 
-        if($this->option('localize') == 'yes') {
+        if ($this->option('localize') == 'yes') {
             $labelText = 'trans(\'' . $this->crudName . '.' . $item['name'] . '\')';
         }
 

@@ -69,18 +69,16 @@ class CrudCommand extends Command
         $viewPath = $this->option('view-path');
 
         $fieldsArray = explode(',', $fields);
-        $requiredFields = '';
         $requiredFieldsStr = '';
+        $fillableArray = [];
 
         foreach ($fieldsArray as $item) {
-            $fillableArray[] = preg_replace("/(.*?):(.*)/", "$1", trim($item));
+            $spareParts = explode('#', trim($item));
+            $fillableArray[] = $spareParts[0];
 
-            $itemArray = explode(':', $item);
-            $currentField = trim($itemArray[0]);
-            $requiredFieldsStr .= (isset($itemArray[2])
-                && (trim($itemArray[2]) == 'req'
-                    || trim($itemArray[2]) == 'required'))
-            ? "'$currentField' => 'required', " : '';
+            $currentField = trim($spareParts[0]);
+            $requiredFieldsStr .= (isset($spareParts[2]))
+            ? "'$currentField' => '{$spareParts[2]}', " : '';
         }
 
         $commaSeparetedString = implode("', '", $fillableArray);
@@ -95,7 +93,7 @@ class CrudCommand extends Command
         $this->call('crud:model', ['name' => $modelName, '--fillable' => $fillable, '--table' => $tableName, '--pk' => $primaryKey]);
         $this->call('crud:migration', ['name' => $migrationName, '--schema' => $fields, '--pk' => $primaryKey]);
         $this->call('crud:view', ['name' => $viewName, '--fields' => $fields, '--view-path' => $viewPath, '--route-group' => $routeGroup, '--localize' => $localize, '--pk' => $primaryKey]);
-        if($this->option('localize') == 'yes') {
+        if ($this->option('localize') == 'yes') {
             $this->call('crud:lang', ['name' => $viewName, '--fields' => $fields, '--locales' => $locales]);
         }
         // For optimizing the class loader
@@ -106,15 +104,7 @@ class CrudCommand extends Command
         if (file_exists($routeFile) && (strtolower($this->option('route')) === 'yes')) {
             $this->controller = ($controllerNamespace != '') ? $controllerNamespace . '\\' . $name . 'Controller' : $name . 'Controller';
 
-            if (\App::VERSION() >= '5.2') {
-                $isAdded = File::append($routeFile,
-                    "\nRoute::group(['middleware' => ['web']], function () {"
-                    . "\n\t" . implode("\n\t", $this->addRoutes())
-                    . "\n});"
-                );
-            } else {
-                $isAdded = File::append($routeFile, "\n".implode("\n", $this->addRoutes()));
-            }
+            $isAdded = File::append($routeFile, "\n" . implode("\n", $this->addRoutes()));
 
             if ($isAdded) {
                 $this->info('Crud/Resource route added to ' . $routeFile);
@@ -129,7 +119,8 @@ class CrudCommand extends Command
      *
      * @return  array
      */
-    protected function addRoutes() {
+    protected function addRoutes()
+    {
         return ["Route::resource('" . $this->routeName . "', '" . $this->controller . "');"];
     }
 }

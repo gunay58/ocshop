@@ -28,6 +28,7 @@ class profile extends Model
      */
 
     protected $fillable = ['id', 'username', 'password', 'email', 'guthaben', 'drop_name', 'drop_strasse_hausnr', 'drop_plz_ort', 'drop_land', 'ps_name', 'ps_postnr', 'ps_psnr', 'ps_plz_ort', 'ps_land', 'created_at', 'updated_at'];
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);

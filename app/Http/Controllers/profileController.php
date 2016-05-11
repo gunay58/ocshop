@@ -15,6 +15,16 @@ use Illuminate\Support\Facades\Hash;
 
 class profileController extends Controller
 {
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed'
+        ]);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -99,10 +109,10 @@ class profileController extends Controller
     {
         if(Auth::check() && $id == Auth::id()) {
             $profile = profile::findOrFail($id);
+            $newPassword = $request->get('password');
 
-            $newPassword = $request->only('password');
 
-            if(empty($newPassword)){
+            if(trim($newPassword) == ''){
                 $profile->update($request->except('password'));
             }else{
                 $profile->password = bcrypt($profile->password );
@@ -110,7 +120,7 @@ class profileController extends Controller
             }
 
 
-            \Session::flash('flash_message','Office successfully added.');
+            Session::put('flash_message','Dein Profil wurde aktualisiert.');
             return redirect('/profile/'.$id.'/edit');
 
         } else {
