@@ -87,7 +87,7 @@
                         </button>
                         oder
                         <button onclick="location.href='{{ url('/register') }}';" type="button"
-                                class="btn btn-default navbar-btn"><img src="/img/ico/user_add.png"> Registrieren
+                                class="btn btn-default navbar-btn"><img src="/img/ico/user_add.png"> Account anlegen
                         </button>
                     </li>
                 @endif

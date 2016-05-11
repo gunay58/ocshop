@@ -10,11 +10,11 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Benutzername</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="username" value="{{ old('name') }}">
+                                <input type="text" class="form-control" name="username" value="{{ old('username') }}">
 
                                 @if ($errors->has('username'))
                                     <span class="help-block">
@@ -72,6 +72,12 @@
 
                             <div class="col-md-6">
                                 <input type="text" placeholder="Captchalösung" class="form-control" name="captcha">
+
+                                @if ($errors->has('captcha'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('captcha') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
