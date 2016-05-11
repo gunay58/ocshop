@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use App\profile;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Input;
 use Session;
+use Illuminate\Support\Facades\Hash;
 
 class profileController extends Controller
 {
@@ -97,7 +99,16 @@ class profileController extends Controller
     {
         if(Auth::check() && $id == Auth::id()) {
             $profile = profile::findOrFail($id);
-            $profile->update($request->all());
+
+            $newPassword = $request->only('password');
+
+            if(empty($newPassword)){
+                $profile->update($request->except('password'));
+            }else{
+                $profile->password = bcrypt($profile->password );
+                $profile->update($request->all());
+            }
+
 
             \Session::flash('flash_message','Office successfully added.');
             return redirect('/profile/'.$id.'/edit');

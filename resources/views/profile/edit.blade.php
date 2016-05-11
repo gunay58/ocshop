@@ -21,10 +21,12 @@
                     <div class="panel-heading"><img src="/img/ico/user.png"> Accountinformationen</div>
                     <div class="panel-body">
                         <div class="col-lg-8">
-                            <p>Username: <strong>{{Auth::user()->username}}</strong></p>
-                            <p>Rang:</p>
-                            <p>E-Mail: {{Auth::user()->email}}</p>
-                            <p>Guthaben: {{Auth::user()->guthaben}}€</p>
+                            Username: <strong>{{Auth::user()->username}}</strong><br>
+                            Rang:<br>
+                            E-Mail: {{Auth::user()->email}}<br>
+                            Guthaben: {{Auth::user()->guthaben}}€<br>
+                            Drop: {{ !empty($profile->drop_name) ? Html::image('img/ico/tick2.png') : Html::image('img/ico/cross.png') }}<br>
+                            Packstation: {{ !empty($profile->ps_name) ? Html::image('img/ico/tick2.png') : Html::image('img/ico/cross.png') }}
                         </div>
                         <div class="col-lg-4 pull-right">
                             <img src="/img/user_male.png">
@@ -53,10 +55,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><img src="/img/ico/home.png"> Dropadresse</div>
                     <div class="panel-body">
-                        {{ Form::text('klingelname', null, array('class'=>'form-control','placeholder'=>'Vor- und Nachname')) }}
-                        {{ Form::text('strasse_hausnr', null, array('class'=>'form-control','placeholder'=>'Straße und Hausnummer')) }}
-                        {{ Form::text('plz_ort', null, array('class'=>'form-control','placeholder'=>'PLZ und Ort')) }}
-                        {{ Form::text('land', null, array('class'=>'form-control','placeholder'=>'Land')) }}
+                        {{ Form::text('drop_name', null, array('class'=>'form-control','placeholder'=>'Vor- und Nachname')) }}
+                        {{ Form::text('drop_strasse_hausnr', null, array('class'=>'form-control','placeholder'=>'Straße und Hausnummer')) }}
+                        {{ Form::text('drop_plz_ort', null, array('class'=>'form-control','placeholder'=>'PLZ und Ort')) }}
+                        {{ Form::text('drop_land', null, array('class'=>'form-control','placeholder'=>'Land')) }}
                     </div>
                 </div>
             </div>
@@ -65,11 +67,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><img src="/img/ico/home.png"> Packstation Adresse</div>
                     <div class="panel-body">
-                        {{ Form::text('klingelname', null, array('class'=>'form-control','placeholder'=>'Vor- und Nachname')) }}
-                        {{ Form::text('postnr', null, array('class'=>'form-control','placeholder'=>'PostNr.')) }}
-                        {{ Form::text('psnr', null, array('class'=>'form-control','placeholder'=>'PackstationNr.')) }}
-                        {{ Form::text('plz_ort_ps', null, array('class'=>'form-control','placeholder'=>'PLZ und Ort')) }}
-                        {{ Form::text('land', null, array('class'=>'form-control','placeholder'=>'Land')) }}
+                        {{ Form::text('ps_name', null, array('class'=>'form-control','placeholder'=>'Vor- und Nachname')) }}
+                        {{ Form::text('ps_postnr', null, array('class'=>'form-control','placeholder'=>'PostNr.')) }}
+                        {{ Form::text('ps_psnr', null, array('class'=>'form-control','placeholder'=>'PackstationNr.')) }}
+                        {{ Form::text('ps_plz_ort', null, array('class'=>'form-control','placeholder'=>'PLZ und Ort')) }}
+                        {{ Form::text('ps_land', null, array('class'=>'form-control','placeholder'=>'Land')) }}
                     </div>
                 </div>
             </div>

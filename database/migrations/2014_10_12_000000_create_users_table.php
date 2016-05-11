@@ -19,6 +19,15 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('guthaben');
             $table->integer('rankid');
+            $table->string('drop_name');
+            $table->string('drop_strasse_hausnr');
+            $table->string('drop_plz_ort');
+            $table->string('drop_land');
+            $table->string('ps_name');
+            $table->string('ps_postnr');
+            $table->string('ps_psnr');
+            $table->string('ps_plz_ort');
+            $table->string('ps_land');
             $table->rememberToken();
             $table->timestamps();
         });
